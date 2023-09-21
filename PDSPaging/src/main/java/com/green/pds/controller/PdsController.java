@@ -54,22 +54,26 @@ public class PdsController {
 	
 		//--------------------------------------
 		// 페이징 정보 준비
+		// 현재 페이지 번호
 		int           nowpage   =  Integer.parseInt( (String) map.get("nowpage") ); 
-		int           pagecount =  2;    // 한페이지 당 출력할 줄(row)수  - 2
+		// 한 페이지에 보여줄 자료수(ROWS)
+		int           pagecount =  5;    // 한페이지 당 출력할 줄(row)수  - 2
 
 		// sql 사용할 변수 : 조회할 레코드 번호
 		int           startnum  =  ( nowpage - 1 ) * pagecount + 1;
 		int           endnum    =  nowpage  *  pagecount;
 
-		map.put("nowpage",   nowpage );
-		map.put("pagecount", pagecount );
-		map.put("startnum",  startnum );
-		map.put("endnum",    endnum );		
+		map.put("nowpage",   nowpage ); 
+		map.put("pagecount", pagecount );  
+		map.put("startnum",  startnum );   // 조회할 자료의 시작번호
+		map.put("endnum",    endnum );	   // 조회할 자료의 끝번호
 		//----------------------------------------
 				
 		
 		// 자료실 글 목록
 		String              menu_id        =  (String) map.get("menu_id");
+		
+		//조회할 자료 검색
 		List<PdsPagingVo>   pdsPagingList  =  pdsService.getPdsPagingList( map );
 		
 		// 조회후 pdsService.getPagingList(map)를 실행한 후 변경된 map 정보를 이용 

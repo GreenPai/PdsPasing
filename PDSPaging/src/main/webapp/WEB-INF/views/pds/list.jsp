@@ -3,7 +3,7 @@
         
   <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
   <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>          
-        
+         
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,11 +63,11 @@
            <c:choose>
             <c:when test="${ pdsPagingVo.delnum eq 0 }">
               <a href="/Pds/View?menu_id=${pdsPagingVo.menu_id}&idx=${pdsPagingVo.idx}&nowpage=${map.nowpage}">
-       		   ${ pdsPagingVo.title }
+       		  [답글] ${ pdsPagingVo.title }
        		  </a>
        		</c:when>
        		<c:otherwise>
-       		   <s>삭제된 게시물 입니다</s>
+       		  [답글] <s>삭제된 게시물 입니다</s>
        		</c:otherwise>
        	   </c:choose>	 
        		

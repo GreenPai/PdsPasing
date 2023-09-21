@@ -14,7 +14,7 @@
 </head>
 <body>
    <div id="main">
-   <h2>사용자 목록</h2>
+   <h2>사용자 목록</h2>    
    <c:forEach var="user" items="${ uList }">
    <ul>
      <li>아이디 : ${ user.userid }</li>
