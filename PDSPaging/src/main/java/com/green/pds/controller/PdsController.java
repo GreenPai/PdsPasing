@@ -80,7 +80,7 @@ public class PdsController {
 		// paging.jsp 가 사용할 변수담고 있다
 		PdsPagingVo         pdsPagingVo    =  (PdsPagingVo) map.get("pdsPagingVo");
 		//System.out.println("125:" +  pdsPagingVo);
-		
+
 		
 		// 메뉴이름을 가져온다		
 		String        menuname  = menuService.getMenuName(menu_id);
@@ -205,6 +205,13 @@ public class PdsController {
 		List<FilesVo>  fileList  =  pdsService.getFileList( map );    // idx
 		// System.out.println( fileList  );
 		
+		/*
+		//메뉴이름
+		String menu_id = (String) map.get(menuname);
+		String menuname = menuService.getMenuName(menu_id);
+		map.get("menuname", menuname);
+		*/
+		
 		ModelAndView  mv  =  new ModelAndView();
 		mv.setViewName( "pds/view" );     //  pds/view.jsp
 		mv.addObject("menuList",  menulist);
@@ -241,6 +248,7 @@ public class PdsController {
 		return     mv;
 		
 	}
+	
 	
 	//--------------------------------------
 	// 수정

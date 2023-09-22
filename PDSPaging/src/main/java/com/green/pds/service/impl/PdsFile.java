@@ -82,14 +82,18 @@ public class PdsFile {
 	public static void delete(List<FilesVo> fileList) {
 		
 		String path = "d:\\upload\\";
+        
+		if(fileList != null) {
+			
+			fileList.forEach( ( f ) -> {
+				String sfile = f.getSfilename();
+				File   file  = new File(path + sfile);
+				if(file.exists())
+					file.delete();
+			});
 		
-		fileList.forEach( ( f ) -> {
-			String sfile = f.getSfilename();
-			File   file  = new File(path + sfile);
-			if(file.exists())
-				file.delete();
-		});
-		
+		}
+	
 	}
 
 }
